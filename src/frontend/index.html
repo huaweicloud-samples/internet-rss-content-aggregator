@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>内容聚合器</title>
+  <style>
+    body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; max-width: 720px; margin: 0 auto; padding: 24px; color: #222; }
+    h1 { border-bottom: 2px solid #223; padding-bottom: 8px; }
+    .post { border: 1px solid #e3e3e3; border-radius: 8px; padding: 16px; margin: 12px 0; }
+    .post h3 { margin: 0 0 6px; } .post a { color: #1a6; }
+    .meta { color: #666; font-size: 13px; }
+    .tag { display: inline-block; background: #eef; border-radius: 4px; padding: 2px 8px; margin-right: 4px; font-size: 12px; }
+    .empty { color: #888; }
+  </style>
+</head>
+<body>
+  <h1>内容聚合器</h1>
+  <p>定时聚合的内容列表（由编排函数产出，静态托管展示）。</p>
+  <div id="content"><p class="empty">加载中…</p></div>
+  <script>
+    fetch('./content.json')
+      .then(r => r.json())
+      .then(items => {
+        const box = document.getElementById('content');
+        if (!items || items.length === 0) { box.innerHTML = '<p class="empty">暂无内容</p>'; return; }
+        box.innerHTML = items.map(p => `
+          <div class="post">
+            <h3>${p.title}</h3>
+            <p>${p.intro}</p>
+            <p class="meta">${p.author || ''} · ${p.date || ''} · <a href="${p.link}" target="_blank">阅读原文</a></p>
+            <p>${(p.tags || []).map(t => `<span class="tag">${t}</span>`).join('')}</p>
+          </div>`).join('');
+      })
+      .catch(() => { document.getElementById('content').innerHTML = '<p class="empty">content.json 加载失败</p>'; });
+  </script>
+</body>
+</html>
