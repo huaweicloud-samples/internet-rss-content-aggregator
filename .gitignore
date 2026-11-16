@@ -1,0 +1,8 @@
+infra/.terraform/
+infra/*.tfstate*
+infra/terraform.tfvars
+src/frontend/node_modules/
+
+# others/ 是内部过程产物：验证报告含真实 project_id / domain_id / 账号名，
+# 以及迁移过程分析，不随产物上传 GitHub（本地保留，仅忽略提交）
+others/

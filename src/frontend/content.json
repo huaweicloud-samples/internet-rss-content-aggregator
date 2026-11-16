@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Building serverless content aggregation pipelines",
+    "intro": "A practical walkthrough of automated content aggregation with serverless compute.",
+    "author": "Example Team",
+    "date": "2026-09-20",
+    "link": "https://example.com/posts/serverless-pipelines",
+    "tags": ["serverless", "automation"]
+  },
+  {
+    "title": "Event-driven architecture in practice",
+    "intro": "How event-driven design keeps aggregation workflows decoupled and resilient.",
+    "author": "Example Team",
+    "date": "2026-09-19",
+    "link": "https://example.com/posts/eda-practice",
+    "tags": ["events", "architecture"]
+  }
+]

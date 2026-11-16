@@ -1,0 +1,9 @@
+# Copy to terraform.tfvars and fill in your own credentials.
+# terraform.tfvars is gitignored - never commit real credentials.
+access_key      = "REPLACE_WITH_ACCESS_KEY"
+secret_key      = "REPLACE_WITH_SECRET_KEY"
+security_token  = ""
+
+region          = "cn-north-4"
+project_name    = "content-agg"
+obs_bucket_name = "content-agg-static"
